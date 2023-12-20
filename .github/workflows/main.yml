@@ -63,4 +63,4 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker push 205429787317.dkr.ecr.ap-south-1.amazonaws.com/test-ecr:latest
+            docker pull 205429787317.dkr.ecr.ap-south-1.amazonaws.com/test-ecr:latest
