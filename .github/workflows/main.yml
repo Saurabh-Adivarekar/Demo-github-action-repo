@@ -50,8 +50,16 @@ jobs:
     #     script: |
     #       https://github.com/Saurabh-Adivarekar/Terragrunt2.git
 
-    - name: Run command on AWS instance
-      run: |
-          ssh Github_user@15.207.223.21 'echo "Hello from GitHub Workflow" > file.txt'
+    # - name: Run command on AWS instance
+    #   run: |
+    #       ssh Github_user@15.207.223.21 'echo "Hello from GitHub Workflow" > file.txt'
         
-          
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            'echo "Hello from GitHub Workflow" > file.txt'
