@@ -40,15 +40,18 @@ jobs:
     #     IMAGE_TAG: ${{ github.sha }}
     #     AWS_DEFAULT_REGION: ap-south-1
 
-    - name: SSH to Instance
-      uses: appleboy/ssh-action@master 
-      with:
-        host: ec2-15-207-223-21.ap-south-1.compute.amazonaws.com
-        username: ubuntu
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: 22
-        script: |
-          https://github.com/Saurabh-Adivarekar/Terragrunt2.git
-        
+    # - name: SSH to Instance
+    #   uses: appleboy/ssh-action@master 
+    #   with:
+    #     host: ec2-15-207-223-21.ap-south-1.compute.amazonaws.com
+    #     username: ubuntu
+    #     key: ${{ secrets.PRIVATE_KEY }}
+    #     port: 22
+    #     script: |
+    #       https://github.com/Saurabh-Adivarekar/Terragrunt2.git
+
+    - name: Run command on AWS instance
+      run: |
+          ssh Github_user@15.207.223.21 'echo "Hello from GitHub Workflow" > file.txt'
         
           
