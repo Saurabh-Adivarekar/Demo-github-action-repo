@@ -55,15 +55,15 @@ jobs:
     #   run: |
     #       ssh Github_user@15.207.223.21 'echo "Hello from GitHub Workflow" > file.txt'
         
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-              echo "hello world" > file.txt
+    # - name: executing remote ssh commands using ssh key
+    #   uses: appleboy/ssh-action@v1.0.0
+    #   with:
+    #       host: ${{ secrets.HOST }}
+    #       username: ${{ secrets.USERNAME }}
+    #       key: ${{ secrets.KEY }}
+    #       port: ${{ secrets.PORT }}
+    #       script: |
+    #           echo "hello world" > file.txt
             # aws configure set aws_access_key_id ${{ env.AWS_ACCESS_KEY_ID  }} --profile fiftyfive && aws configure set aws_secret_access_key ${{ env.AWS_SECRET_ACCESS_KEY }} --profile fiftyfive && aws configure set region ${{ env.AWS_REGION }} --profile fiftyfive && aws configure set output "text" --profile fifyfive
             # aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 205429787317.dkr.ecr.ap-south-1.amazonaws.com
             # docker pull 205429787317.dkr.ecr.ap-south-1.amazonaws.com/test-ecr:latest
