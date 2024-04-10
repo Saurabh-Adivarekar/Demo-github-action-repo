@@ -1,21 +1,13 @@
-FROM golang:1.17-buster AS build
+FROM node:14
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY go.mod ./
-COPY go.sum ./
-RUN go mod download
+COPY package*.json ./
 
-COPY *.go ./
+RUN npm install
 
-RUN go build -o /lesson-086
+COPY . .
 
-FROM gcr.io/distroless/base-debian10
+EXPOSE 3000
 
-WORKDIR /
-
-COPY --from=build /lesson-086 /lesson-086
-
-USER nonroot:nonroot
-
-ENTRYPOINT ["/lesson-086"]
+CMD ["node", "app.js"]
