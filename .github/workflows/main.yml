@@ -46,4 +46,4 @@ jobs:
               docker pull 205429787317.dkr.ecr.ap-south-1.amazonaws.com/test-ecr:latest
               docker stop my_container || true
               docker rm my_container || true
-              docker run -p 3000:3000 -d 205429787317.dkr.ecr.ap-south-1.amazonaws.com/test-ecr:latest
+              docker run --name my_container-p 3000:3000 -d 205429787317.dkr.ecr.ap-south-1.amazonaws.com/test-ecr:latest
